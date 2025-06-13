@@ -1,0 +1,29 @@
+
+# 1. Clone your empty combined repository
+git clone https://github.com/kolluruchandrahasa/CombinedProject.git
+cd CombinedProject
+
+# 2. Clone JavaWebCalculator repo into a temporary folder
+git clone https://github.com/kolluruchandrahasa/JavaWebCalculator.git temp-javaweb
+
+# 3. Move the temp folder into the combined repo as JavaWebCalculator folder
+mv temp-javaweb JavaWebCalculator
+
+# 4. Clone vprofile-project repo into another temporary folder
+git clone https://github.com/kolluruchandrahasa/vprofile-project.git temp-vprofile
+
+# 5. Move the temp folder into the combined repo as vprofile-project folder
+mv temp-vprofile vprofile-project
+
+# 6. Remove the .git folders inside each project to avoid nested repositories
+rm -rf JavaWebCalculator/.git
+rm -rf vprofile-project/.git
+
+# 7. Add all files from both projects to the combined repo's git index
+git add .
+
+# 8. Commit the changes with a descriptive message
+git commit -m "Added JavaWebCalculator and vprofile-project as separate folders"
+
+# 9. Push the commit to your remote combined repository
+git push origin main  # or master if your branch is named master
