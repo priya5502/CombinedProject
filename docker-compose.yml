@@ -1,0 +1,27 @@
+
+version: '3.8'
+
+services:
+  javawebcalculator:
+    build:
+      context: ./JavaWebCalculator
+      dockerfile: Dockerfile
+    container_name: javawebcalculator
+    ports:
+      - "8080:8080"
+    networks:
+      - combined-network
+
+  vprofile:
+    build:
+      context: ./vprofile-project
+      dockerfile: Dockerfile
+    container_name: vprofile
+    ports:
+      - "8081:8080"
+    networks:
+      - combined-network
+
+networks:
+  combined-network:
+    driver: bridge
